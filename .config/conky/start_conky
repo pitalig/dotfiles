@@ -1,0 +1,6 @@
+#!/bin/bash
+
+conky -c ~/.config/conky/conky_status &>/dev/null &
+conky -c ~/.config/conky/conky_shortcuts &>/dev/null &
+
+exit 0

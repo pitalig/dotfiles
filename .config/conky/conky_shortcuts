@@ -1,0 +1,57 @@
+conky.config = {
+	alignment = 'bottom_left',
+	background = true,
+	color2 = '5D7B86',
+	color3 = '87979c',
+	cpu_avg_samples = 2,
+	default_color = 'F9FAF9',
+	double_buffer = true,
+	font = 'Bitstream Vera Sans:size=8',
+	draw_shades = false,
+	gap_x = 25,
+	gap_y = 45,
+	minimum_width = 200,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 2.0,
+	use_xft = true,
+}
+conky.text = [[
+${color3}Window Actions
+${color2}kill focused - ${color}SHIFT + Q
+${color2}toggle fullscreen - ${color}F
+${color2}toggle split direction - ${color}Q
+${color2}toggle floating - ${color}SHIFT + SPACE
+
+${color3}Modes
+${color2}Stacking - ${color}S
+${color2}Tabbed - ${color}W
+${color2}Tiling - ${color}E
+
+${color3}Other Actions
+${color2}Reload i3 - ${color}SHIFT + R
+${color2}Lock - ${color}9
+${color2}Exit - ${color}0
+${color2}Shutdown - ${color}0 -> SHIFT + S
+${color2}Help - ${color}SHIFT + H
+
+${color3}Application Shortcuts
+${color2}Rofi menu - ${color}D
+${color2}Categorized menu - ${color}Z
+${color2}Terminal - ${color}ENTER
+${color2}Browser - ${color}F2
+${color2}File Manager - ${color}F3
+${color2}Root File Manager - ${color}SHIFT + F3
+
+${color3}Workspaces
+${color2}Switch - ${color}1-8
+${color2}Send - ${color}CTRL + 1-8
+${color2}Send and switch - ${color}SHIFT + 1-8
+
+${color3}Screenshot
+${color2}Whole screen - ${color}PRINT
+${color2}Focused - ${color}MOD + PRINT
+${color2}Selection - ${color}MOD + SHIFT + PRINT
+]]

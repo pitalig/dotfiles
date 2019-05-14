@@ -1,0 +1,83 @@
+#!/bin/bash
+
+cd $HOME
+
+msg() {
+    ALL_OFF="\e[1;0m"
+    BOLD="\e[1;1m"
+    GREEN="${BOLD}\e[1;32m"
+    local mesg=$1; shift
+    printf "\n${GREEN}==>${ALL_OFF}${BOLD} ${mesg}${ALL_OFF}\n" "$@" >&2
+    }
+
+install_packages() {
+    msg "Installing/upgrading packages and system"
+    sudo pacman -S yay --noconfirm --needed
+    yay -Syu google-chrome intellij-idea-community-edition code tilix autojump rofi i3blocks xclip g810-led-git zsh leiningen --noconfirm --needed
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+    dconf load /com/gexperts/Tilix/ < $HOME/.config/tilix/tilix.dconf
+}
+
+setup_git() {
+    msg "Getting user info"
+    read -p "Enter name: " name
+    read -p "Enter email: " email
+
+    msg "Setup gitconfig"
+    git config --global user.name "$name"
+    git config --global user.email "$email"
+    git config --global user.email "$email"
+    git config --global core.excludesfile "$HOME/.gitignore_global"
+    git config --global core.editor "vim"
+    git config --global diff.tool "vimdiff"
+
+    msg "Setup git ssh"
+    ssh-keygen -t rsa -b 4096 -C "$email"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
+    xclip -sel clip < ~/.ssh/id_rsa.pub
+    msg "SSH Key saved on clipboard, paste it to github"
+}
+
+setup_keyboard() {
+    msg "Replace environment file to enable cedilha"
+    sudo cp .config/etc/environment /etc/environment
+}
+
+install_pulse() {
+    i3configfile=$HOME/.config/i3/config
+
+    #install pulseaudio and friends
+    msg "installing pulsaudio packages"
+    yay -S manjaro-pulse pavucontrol --noconfirm --needed || exit 1
+
+    #comment out unneeded config
+    msg "writing configuration"
+    sed -i 's/bindsym \$mod+Ctrl+m exec terminal -e '\''alsamixer'\''/#bindsym \$mod+Ctrl+m exec terminal -e '\''alsamixer'\''/g' $i3configfile
+
+    #uncomment needed config
+    sed -i 's/#exec --no-startup-id pulseaudio/exec --no-startup-id pulseaudio/g' $i3configfile
+    sed -i 's/#bindsym \$mod+Ctrl+m exec pavucontrol/bindsym \$mod+Ctrl+m exec pavucontrol/g' $i3configfile
+
+    msg "your system has been upgraded with Pulseaudio. Please re-log now."
+}
+
+msg 'Options:'
+msg '1 - Update and install packages, system and repository information'
+msg '2 - Setup git'
+msg '3 - Replace /etc/environment to support cedilha'
+msg '4 - Install pulseaudio'
+echo ' '
+read -p "Enter all the options you want. Enter '1234' to do everything: "
+echo ' '
+
+for (( i=0; i<${#REPLY}; i++ )); do
+    case ${REPLY:$i:1} in
+        [1] ) install_packages;;
+        [2] ) setup_git;;
+        [3] ) setup_keyboard;;
+        [4] ) install_pulse;;
+        [*] ) msg "Invalid option.";;
+    esac
+done

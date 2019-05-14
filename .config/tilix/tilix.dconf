@@ -1,0 +1,22 @@
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+visible-name='Default'
+
+[/]
+quake-specific-monitor=0
+recent-session-files=['/home/gabrielpitali/test_tilix-save.json']
+use-overlay-scrollbar=false
+copy-on-select=true
+sidebar-on-right=false
+auto-hide-mouse=true
+terminal-title-style='small'
+window-state=128
+theme-variant='dark'
+enable-wide-handle=false
+prompt-on-new-session=true
+window-save-state=true
+custom-hyperlinks=@as []
+terminal-title-show-when-single=true
+window-style='borderless'
+
+[keybindings]
+app-preferences='<Primary><Alt>s'
