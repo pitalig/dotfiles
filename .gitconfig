@@ -1,8 +1,0 @@
-[user]
-	email = pitalig@gmail.com
-	name = Gabriel Pitali
-[core]
-	excludesfile = /Users/gabriel/.gitignore_global
-	editor = vim
-[diff]
-	tool = vimdiff

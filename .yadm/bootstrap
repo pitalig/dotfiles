@@ -27,8 +27,7 @@ setup_git() {
     msg "Setup gitconfig"
     git config --global user.name "$name"
     git config --global user.email "$email"
-    git config --global user.email "$email"
-    git config --global core.excludesfile "$HOME/.gitignore_global"
+    git config --global core.excludesfile "~/.gitignore_global"
     git config --global core.editor "vim"
     git config --global diff.tool "vimdiff"
 
@@ -38,6 +37,9 @@ setup_git() {
     ssh-add ~/.ssh/id_rsa
     xclip -sel clip < ~/.ssh/id_rsa.pub
     msg "SSH Key saved on clipboard, paste it to github"
+
+    msg "Updating the yadm repo origin URL"
+    yadm remote set-url origin "git@github.com:pitalig/dotfiles.git"
 }
 
 setup_keyboard() {
