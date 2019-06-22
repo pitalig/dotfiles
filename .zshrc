@@ -52,3 +52,18 @@ alias copy="xclip -selection clipboard"
 alias oath_aws="ykman oath code | grep Amazon | awk '{print $4}' | copy"
 alias oath_mailchimp="ykman oath code | grep mailchimp | awk '{print $2}' | copy"
 alias oath_slack="ykman oath code | grep Slack | awk '{print $2}' | copy"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
