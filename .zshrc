@@ -45,3 +45,10 @@ source "$NU_HOME/nucli/nu.bashcompletion"
 # Ruby gems path
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 PATH="$GEM_HOME/bin:$PATH"
+
+# Aliases
+alias zshconfig="code ~/.zshrc"
+alias copy="xclip -selection clipboard"
+alias oath_aws="ykman oath code | grep Amazon | awk '{print $4}' | copy"
+alias oath_mailchimp="ykman oath code | grep mailchimp | awk '{print $2}' | copy"
+alias oath_slack="ykman oath code | grep Slack | awk '{print $2}' | copy"

@@ -81,6 +81,10 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+# change focus tabbed mode
+bindsym $mod+Tab focus left
+bindsym $mod+Shift+Tab focus right
+
 # Alert when trying to use cursor keys
 bindsym $mod+Left exec notify-send 'USE H'
 bindsym $mod+Down exec notify-send 'USE J'
