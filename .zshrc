@@ -49,9 +49,9 @@ PATH="$GEM_HOME/bin:$PATH"
 # Aliases
 alias zshconfig="code ~/.zshrc"
 alias copy="xclip -selection clipboard"
-alias oath_aws="ykman oath code | grep Amazon | awk '{print $4}' | copy"
-alias oath_mailchimp="ykman oath code | grep mailchimp | awk '{print $2}' | copy"
-alias oath_slack="ykman oath code | grep Slack | awk '{print $2}' | copy"
+alias oath_aws="ykman oath code | grep Amazon | awk '{print \$4}' | copy"
+alias oath_mailchimp="ykman oath code | grep mailchimp | awk '{print \$2}' | copy"
+alias oath_slack="ykman oath code | grep Slack | awk '{print \$2}' | copy"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
