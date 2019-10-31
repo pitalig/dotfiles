@@ -14,3 +14,6 @@ pom.xml.asc
 .idea
 .vscode
 .idea/   
+pitali-playground
+services-apis.iml
+.lein-env
