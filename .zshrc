@@ -83,6 +83,7 @@ alias copy="xclip -selection clipboard"
 alias oath_aws="ykman oath code | grep Amazon | awk '{print \$4}' | copy"
 alias oath_mailchimp="ykman oath code | grep mailchimp | awk '{print \$2}' | copy"
 alias oath_slack="ykman oath code | grep Slack | awk '{print \$2}' | copy"
+alias gmcsg="gcmsg"
 
 # Functions
 function mkdate
