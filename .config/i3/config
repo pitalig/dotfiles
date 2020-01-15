@@ -171,12 +171,11 @@ set $ws8 8
 
 # Workspace default display
 workspace 1 output HDMI1
-workspace 2 output VGA1
+workspace 2 output DP2
 
 # Move worspace to other display
-bindsym $mod+Ctrl+1 move workspace to output HDMI1
-bindsym $mod+Ctrl+2 move workspace to output VGA1
-bindsym $mod+Ctrl+3 move workspace to output DP2
+bindsym $mod+Ctrl+1 move workspace to output DP2
+bindsym $mod+Ctrl+2 move workspace to output HDMI1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
