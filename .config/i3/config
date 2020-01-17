@@ -46,6 +46,9 @@ bindsym $mod+z exec --no-startup-id morc_menu
 #exec --no-startup-id volumeicon
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 exec --no-startup-id pulseaudio
+# trying to stop and restart pulseaudio
+exec --no-startup-id "pkill -f pulse; sleep 3; pulseaudio"
+
 exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%; pkill -RTMIN+10 i3blocks; notify-send 'Volume up'"
