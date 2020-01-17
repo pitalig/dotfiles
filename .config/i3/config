@@ -48,6 +48,10 @@ bindsym $mod+z exec --no-startup-id morc_menu
 exec --no-startup-id pulseaudio
 exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%; pkill -RTMIN+10 i3blocks; notify-send 'Volume up'"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%; pkill -RTMIN+10 i3blocks; notify-send 'Volume down'"
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+10 i3blocks; notify-send 'Volume mute'"
+
 
 ################################################################################################
 
