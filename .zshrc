@@ -84,6 +84,7 @@ alias oath_aws="ykman oath code | grep Amazon | awk '{print \$4}' | copy"
 alias oath_mailchimp="ykman oath code | grep mailchimp | awk '{print \$2}' | copy"
 alias oath_slack="ykman oath code | grep Slack | awk '{print \$2}' | copy"
 alias gmcsg="gcmsg"
+alias nu_squad_services="sh /home/gabrielpitali/dev/nu/pitali-playground/nu-squad-services.sh"
 
 # Functions
 function mkdate
