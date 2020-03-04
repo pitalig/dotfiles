@@ -16,7 +16,11 @@ export EDITOR=vim
 plugins=(git lein jsontools zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
+
+# Node / nvm
 source /usr/share/nvm/init-nvm.sh
+
+# j
 source /etc/profile.d/autojump.zsh
 
 #fzf
@@ -85,6 +89,7 @@ alias oath_mailchimp="ykman oath code | grep mailchimp | awk '{print \$2}' | cop
 alias oath_slack="ykman oath code | grep Slack | awk '{print \$2}' | copy"
 alias gmcsg="gcmsg"
 alias nu_squad_services="sh /home/gabrielpitali/dev/nu/pitali-playground/nu-squad-services.sh"
+alias lint="lein lint-fix && git add . && gcmsg \"lint-fix\" && ggp"
 
 # Functions
 function mkdate

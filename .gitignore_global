@@ -18,3 +18,5 @@ pitali-playground
 services-apis.iml
 .lein-env
 monorepl.iml
+vitrine.iml
+acquisition-platform-poc.iml
