@@ -15,10 +15,22 @@ export EDITOR=vim
 # Plugins:
 plugins=(git lein jsontools zsh-autosuggestions)
 
+start=`date +%s.%N`
+
 source $ZSH/oh-my-zsh.sh
+
+end=`date +%s.%N`
+runtime=$((end-start))
+echo "oh-my-zsh start time:" $runtime
+start=`date +%s.%N`
 
 # Node / nvm
 source /usr/share/nvm/init-nvm.sh
+
+end=`date +%s.%N`
+runtime=$((end-start))
+echo "nvm start time:" $runtime
+start=`date +%s.%N`
 
 # j
 source /etc/profile.d/autojump.zsh
@@ -40,6 +52,11 @@ fi
 # Export slack token for matricula bot
 export slack_token=""
 
+end=`date +%s.%N`
+runtime=$((end-start))
+echo "j, fzf and some other things time:" $runtime
+start=`date +%s.%N`
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$($HOME'/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -55,15 +72,36 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+end=`date +%s.%N`
+runtime=$((end-start))
+echo "conda time:" $runtime
+start=`date +%s.%N`
+
 # Nubank setup (TODO: Move everthing after this to .nurc)
 source /home/gabrielpitali/.nurc
+
+end=`date +%s.%N`
+runtime=$((end-start))
+echo ".nurc load time:" $runtime
+start=`date +%s.%N`
+
 export PATH="/usr/local/bin:$PATH"
 autoload bashcompinit && bashcompinit
 source "$NU_HOME/nucli/nu.bashcompletion"
 
+end=`date +%s.%N`
+runtime=$((end-start))
+echo "nu bash completion load time:" $runtime
+start=`date +%s.%N`
+
 # Ruby gems path
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 PATH="$GEM_HOME/bin:$PATH"
+
+end=`date +%s.%N`
+runtime=$((end-start))
+echo "Ruby gems load time:" $runtime
+start=`date +%s.%N`
 
 # Aliases
 alias zshconfig="code ~/.zshrc"
@@ -85,3 +123,8 @@ function touchdate
 {
     touch "$(date '+%Y_%m_%d')_$1"
 }
+
+end=`date +%s.%N`
+runtime=$((end-start))
+echo "aliases and functions load time:" $runtime
+start=`date +%s.%N`
