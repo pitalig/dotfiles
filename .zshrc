@@ -24,14 +24,6 @@ runtime=$((end-start))
 echo "oh-my-zsh start time:" $runtime
 start=`date +%s.%N`
 
-# Node / nvm
-source /usr/share/nvm/init-nvm.sh
-
-end=`date +%s.%N`
-runtime=$((end-start))
-echo "nvm start time:" $runtime
-start=`date +%s.%N`
-
 # j
 source /etc/profile.d/autojump.zsh
 
@@ -54,7 +46,7 @@ export slack_token=""
 
 end=`date +%s.%N`
 runtime=$((end-start))
-echo "j, fzf and some other things time:" $runtime
+echo "j, fzf and some other things start time:" $runtime
 start=`date +%s.%N`
 
 # >>> conda initialize >>>
@@ -74,33 +66,7 @@ unset __conda_setup
 
 end=`date +%s.%N`
 runtime=$((end-start))
-echo "conda time:" $runtime
-start=`date +%s.%N`
-
-# Nubank setup (TODO: Move everthing after this to .nurc)
-source /home/gabrielpitali/.nurc
-
-end=`date +%s.%N`
-runtime=$((end-start))
-echo ".nurc load time:" $runtime
-start=`date +%s.%N`
-
-export PATH="/usr/local/bin:$PATH"
-autoload bashcompinit && bashcompinit
-source "$NU_HOME/nucli/nu.bashcompletion"
-
-end=`date +%s.%N`
-runtime=$((end-start))
-echo "nu bash completion load time:" $runtime
-start=`date +%s.%N`
-
-# Ruby gems path
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-PATH="$GEM_HOME/bin:$PATH"
-
-end=`date +%s.%N`
-runtime=$((end-start))
-echo "Ruby gems load time:" $runtime
+echo "conda start time:" $runtime
 start=`date +%s.%N`
 
 # Aliases
@@ -110,7 +76,6 @@ alias oath_aws="ykman oath code | grep Amazon | awk '{print \$4}' | copy"
 alias oath_mailchimp="ykman oath code | grep mailchimp | awk '{print \$2}' | copy"
 alias oath_slack="ykman oath code | grep Slack | awk '{print \$2}' | copy"
 alias gmcsg="gcmsg"
-alias nu_squad_services="sh /home/gabrielpitali/dev/nu/pitali-playground/nu-squad-services.sh"
 alias lint="lein lint-fix && git add . && gcmsg \"lint-fix\" && ggp"
 
 # Functions
@@ -126,5 +91,16 @@ function touchdate
 
 end=`date +%s.%N`
 runtime=$((end-start))
-echo "aliases and functions load time:" $runtime
+echo "aliases and functions start time:" $runtime
 start=`date +%s.%N`
+
+# Source things specific for nu laptop
+pc_name=`uname -n`
+if [ $pc_name = "gabrielpitali-pc" ]; then
+    echo "nulaptoprc:"
+    source /home/gabrielpitali/.nulaptoprc
+
+    end=`date +%s.%N`
+    runtime=$((end-start))
+    echo "nulaptoprc start time:" $runtime
+fi

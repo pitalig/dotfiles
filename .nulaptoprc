@@ -1,0 +1,37 @@
+start=`date +%s.%N`
+
+# Node / nvm
+source /usr/share/nvm/init-nvm.sh
+
+end=`date +%s.%N`
+runtime=$((end-start))
+echo " - nvm start time:" $runtime
+start=`date +%s.%N`
+
+# Nubank setup (TODO: Move everthing after this to .nurc)
+source /home/gabrielpitali/.nurc
+
+end=`date +%s.%N`
+runtime=$((end-start))
+echo " - .nurc load time:" $runtime
+start=`date +%s.%N`
+
+export PATH="/usr/local/bin:$PATH"
+autoload bashcompinit && bashcompinit
+source "$NU_HOME/nucli/nu.bashcompletion"
+
+end=`date +%s.%N`
+runtime=$((end-start))
+echo " - nu bash completion load time:" $runtime
+start=`date +%s.%N`
+
+# Ruby gems path
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+PATH="$GEM_HOME/bin:$PATH"
+
+end=`date +%s.%N`
+runtime=$((end-start))
+echo " - Ruby gems load time:" $runtime
+
+# Aliases
+alias nu_squad_services="sh /home/gabrielpitali/dev/nu/pitali-playground/nu-squad-services.sh"
