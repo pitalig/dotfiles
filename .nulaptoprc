@@ -1,36 +1,36 @@
-start=`date +%s.%N`
+nu_start=`date +%s.%N`
 
 # Node / nvm
 source /usr/share/nvm/init-nvm.sh
 
 end=`date +%s.%N`
-runtime=$((end-start))
-echo " - nvm start time:" $runtime
-start=`date +%s.%N`
+runtime=$((end-nu_start))
+echo " - nvm load time:" $runtime
+nu_start=`date +%s.%N`
 
 # Nubank setup (TODO: Move everthing after this to .nurc)
 source /home/gabrielpitali/.nurc
 
 end=`date +%s.%N`
-runtime=$((end-start))
+runtime=$((end-nu_start))
 echo " - .nurc load time:" $runtime
-start=`date +%s.%N`
+nu_start=`date +%s.%N`
 
 export PATH="/usr/local/bin:$PATH"
 autoload bashcompinit && bashcompinit
 source "$NU_HOME/nucli/nu.bashcompletion"
 
 end=`date +%s.%N`
-runtime=$((end-start))
+runtime=$((end-nu_start))
 echo " - nu bash completion load time:" $runtime
-start=`date +%s.%N`
+nu_start=`date +%s.%N`
 
 # Ruby gems path
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 PATH="$GEM_HOME/bin:$PATH"
 
 end=`date +%s.%N`
-runtime=$((end-start))
+runtime=$((end-nu_start))
 echo " - Ruby gems load time:" $runtime
 
 # Aliases
