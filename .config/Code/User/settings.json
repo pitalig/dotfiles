@@ -2,8 +2,8 @@
 {
     "sync.gist": "8929aa8d8fc267f08af06a7c3caf5e3b",
     "sync.lastUpload": "2018-02-05T12:47:08.002Z",
-    "sync.autoDownload": false,
-    "sync.autoUpload": false,
+    "sync.autoDownload": true,
+    "sync.autoUpload": true,
     "sync.lastDownload": "2017-10-31T15:56:46.571Z",
     "sync.version": 261,
     "sync.showSummary": false,
@@ -130,5 +130,12 @@
     "calva.fmt.removeConsecutiveBlankLines": true,
     "cSpell.enableFiletypes": [
         "clojure"
-    ]
+    ],
+    "editor.formatOnSave": true,
+    "calva.prettyPrintingOptions": {
+        "enabled": true,
+        "printEngine": "pprint",
+        "width": 120
+    },
+    "calva.fmt.configPath": "resources/cljfmt.edn"
 }

@@ -195,5 +195,58 @@
     {
         "key": "ctrl+shift+tab",
         "command": "-workbench.action.quickOpenLeastRecentlyUsedEditorInGroup"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "calva.loadFile",
+        "when": "calva:connected"
+    },
+    {
+        "key": "ctrl+alt+c enter",
+        "command": "-calva.loadFile",
+        "when": "calva:connected"
+    },
+    {
+        "key": "shift+alt+r",
+        "command": "calva.loadNamespace",
+        "when": "calva:connected"
+    },
+    {
+        "key": "ctrl+alt+c ctrl+alt+n",
+        "command": "-calva.loadNamespace",
+        "when": "calva:connected"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "calva.replWindow.submitPrompt",
+        "when": "calva:replWindowActive && calva:replWindowActive && config.calva.REPLWindowPromptKeyMap == 'multi-line'"
+    },
+    {
+        "key": "alt+enter",
+        "command": "-calva.replWindow.submitPrompt",
+        "when": "calva:replWindowActive && calva:replWindowActive && config.calva.REPLWindowPromptKeyMap == 'multi-line'"
+    },
+    {
+        "key": "ctrl+alt+c s",
+        "command": "calva.selectCurrentForm"
+    },
+    {
+        "key": "ctrl+alt+c ctrl+s",
+        "command": "-calva.selectCurrentForm"
+    },
+    {
+        "key": "ctrl+left",
+        "command": "-paredit.barfSexpForward",
+        "when": "calva:replWindowActive || editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "ctrl+alt+c ctrl+s",
+        "command": "paredit.rangeForDefun",
+        "when": "calva:replWindowActive || editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "ctrl+alt+w space",
+        "command": "-paredit.rangeForDefun",
+        "when": "calva:replWindowActive || editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     }
 ]
