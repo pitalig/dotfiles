@@ -71,8 +71,8 @@ bindsym $mod+F4 exec ranger
 bindsym $mod+F5 exec ~/.screenlayout/single.sh
 bindsym $mod+F6 exec ~/.screenlayout/work.sh
 bindsym $mod+F7 exec ~/.screenlayout/1080-mirror.sh
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+bindsym $mod+t exec --no-startup-id pkill picom
+bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 # bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -177,13 +177,13 @@ set $ws7 7
 set $ws8 8
 
 # Workspace default display
-workspace 1 output HDMI1
+workspace 1 output HDMI-1
 workspace 2 output DP2
 
 # Move worspace to other display
 bindsym $mod+Ctrl+1 move workspace to output DP2
-bindsym $mod+Ctrl+2 move workspace to output HDMI1
-bindsym $mod+Ctrl+3 move workspace to output eDP1
+bindsym $mod+Ctrl+2 move workspace to output HDMI-1
+bindsym $mod+Ctrl+3 move workspace to output eDP-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -313,10 +313,11 @@ mode "resize" {
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id .screenlayout/two-screens.sh
-exec --no-startup-id nitrogen --restore sleep 10 compton -b
+# exec --no-startup-id .screenlayout/two-screens.sh
+exec --no-startup-id nitrogen --random
 # exec --no-startup-id /usr/bin/g610-led -a 00
 # exec --no-startup-id manjaro-hello
+# exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
