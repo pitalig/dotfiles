@@ -43,7 +43,7 @@ bindsym $mod+Return exec tilix
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec google-chrome-stable
 bindsym $mod+F3 exec pcmanfm
-bindsym $mod+Shift+F3 exec gksu pcmanfm
+bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F4 exec ranger
 bindsym $mod+F5 exec ~/.screenlayout/single.sh
 bindsym $mod+F6 exec ~/.screenlayout/home-wide-1080-side-by-side.sh
@@ -178,7 +178,6 @@ for_window [class="Qtconfig-qt4"] floating enable sticky enable
 for_window [class="Simple-scan"] floating enable
 for_window [class="(?i)System-config-printer.py"] floating disable
 for_window [class="Skype"] floating disable
-for_window [class="Thus"] floating enable
 for_window [class="Timeset-gui"] floating enable
 for_window [class="(?i)virtualbox"] floating disable
 for_window [class="Xfburn"] floating disable
@@ -231,7 +230,8 @@ mode "resize" {
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id $ nitrogen --random --set-scaled --head=0;
+exec --no-startup-id $ nitrogen --random --set-scaled --head=1;
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
