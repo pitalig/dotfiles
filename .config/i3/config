@@ -112,9 +112,20 @@ bindsym $mod+Shift+s sticky toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# Workspace names
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+
 # Workspace default display
-workspace 1 output HDMI-1
-workspace 2 output DP2
+workspace $ws1 output HDMI-1
+workspace $ws2 output DP2
 
 # Move worspace to other display
 bindsym $mod+Ctrl+1 move workspace to output DP2
@@ -133,15 +144,15 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
 # Move focused container to workspace
-# bindsym $mod+Alt+1 move container to workspace $ws1
-# bindsym $mod+Alt+2 move container to workspace $ws2
-# bindsym $mod+Alt+3 move container to workspace $ws3
-# bindsym $mod+Alt+4 move container to workspace $ws4
-# bindsym $mod+Alt+5 move container to workspace $ws5
-# bindsym $mod+Alt+6 move container to workspace $ws6
-# bindsym $mod+Alt+7 move container to workspace $ws7
-# bindsym $mod+Alt+8 move container to workspace $ws8
-# bindsym $mod+Alt+9 move container to workspace $ws9
+bindsym $mod+Ctrl+Shift+1 move container to workspace $ws1
+bindsym $mod+Ctrl+Shift+2 move container to workspace $ws2
+bindsym $mod+Ctrl+Shift+3 move container to workspace $ws3
+bindsym $mod+Ctrl+Shift+4 move container to workspace $ws4
+bindsym $mod+Ctrl+Shift+5 move container to workspace $ws5
+bindsym $mod+Ctrl+Shift+6 move container to workspace $ws6
+bindsym $mod+Ctrl+Shift+7 move container to workspace $ws7
+bindsym $mod+Ctrl+Shift+8 move container to workspace $ws8
+bindsym $mod+Ctrl+Shift+9 move container to workspace $ws9
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -277,14 +288,19 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 
 client.background       #2B2C2B
 
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
-default_floating_border pixel 1
+# Default border
+for_window [class="^.*"] border pixel 1
 
 # Smart / auto hide borders
 hide_edge_borders smart
 smart_gaps on
 smart_borders on
+
+# Set inner/outer gaps between windows
+gaps inner 0
+gaps outer 0
+
+
 
 ## 2020/04/16 - Quarantine configs that may be removed soon
 
@@ -318,12 +334,3 @@ smart_borders on
 # set_from_resource $term_color13    color13
 # set_from_resource $term_color14    color14
 # set_from_resource $term_color15    color15
-
-# Set inner/outer gaps
-# gaps inner 5
-# gaps outer 0
-
-# set border for all windows
-# for_window [class="^.*"] border pixel 2
-
-##
