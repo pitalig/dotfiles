@@ -8,7 +8,7 @@ runtime=$((end-nu_start))
 echo " - nvm load time:" $runtime
 nu_start=`date +%s.%N`
 
-# Nubank setup (TODO: Move everthing after this to .nurc)
+# Nu laptop setup
 source /home/gabrielpitali/.nurc
 
 end=`date +%s.%N`
@@ -34,4 +34,4 @@ runtime=$((end-nu_start))
 echo " - Ruby gems load time:" $runtime
 
 # Aliases
-alias nu_squad_services="sh /home/gabrielpitali/dev/nu/pitali-playground/nu-squad-services.sh"
+alias nu_squad_services="sh /home/gabrielpitali/dev/nu/common-acquisition/nu-squad-services.sh"

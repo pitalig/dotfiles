@@ -124,13 +124,13 @@ set $ws8 8
 set $ws9 9
 
 # Workspace default display
-workspace $ws1 output HDMI-1
-workspace $ws2 output DP2
+workspace $ws1 output HDMI1
+workspace $ws2 output HDMI1
 
 # Move worspace to other display
 bindsym $mod+Ctrl+1 move workspace to output DP2
-bindsym $mod+Ctrl+2 move workspace to output HDMI-1
-bindsym $mod+Ctrl+3 move workspace to output eDP-1
+bindsym $mod+Ctrl+2 move workspace to output HDMI1
+bindsym $mod+Ctrl+3 move workspace to output eDP1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
