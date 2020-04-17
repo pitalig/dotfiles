@@ -9,6 +9,13 @@ DEFAULT_USER="gabriel"
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 
+# history options
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt HIST_FIND_NO_DUPS
+setopt inc_append_history
+setopt share_history
+
 # editor
 export EDITOR=vim
 
