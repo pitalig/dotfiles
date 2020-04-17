@@ -13,7 +13,7 @@ msg() {
 install_packages() {
     msg "Installing/upgrading packages and system"
     sudo pacman -S yay --noconfirm --needed
-    yay -Syu google-chrome intellij-idea-community-edition code tilix autojump rofi i3blocks xclip g810-led-git zsh leiningen autorandr --noconfirm --needed
+    yay -Syu google-chrome intellij-idea-community-edition visual-studio-code-bin tilix autojump rofi i3blocks xclip g810-led-git zsh zsh-autosuggestions leiningen autorandr --noconfirm --needed
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
     dconf load /com/gexperts/Tilix/ < $HOME/.config/tilix/tilix.dconf
