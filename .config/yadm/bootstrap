@@ -13,7 +13,7 @@ msg() {
 install_packages() {
     msg "Installing/upgrading packages and system"
     sudo pacman -S yay --noconfirm --needed
-    yay -Syu google-chrome intellij-idea-community-edition code tilix autojump rofi i3blocks xclip g810-led-git zsh leiningen --noconfirm --needed
+    yay -Syu google-chrome intellij-idea-community-edition code tilix autojump rofi i3blocks xclip g810-led-git zsh leiningen autorandr --noconfirm --needed
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
     dconf load /com/gexperts/Tilix/ < $HOME/.config/tilix/tilix.dconf
@@ -65,13 +65,18 @@ install_pulse() {
     msg "your system has been upgraded with Pulseaudio. Please re-log now."
 }
 
+remove_default_i3_config() {
+    rm ~/.i3/config
+}
+
 msg 'Options:'
 msg '1 - Update and install packages, system and repository information'
 msg '2 - Setup git'
 msg '3 - Replace /etc/environment to support cedilha'
 msg '4 - Install pulseaudio'
+msg '5 - Remove default i3 config'
 echo ' '
-read -p "Enter all the options you want. Enter '1234' to do everything: "
+read -p "Enter all the options you want. Enter '12345' to do everything: "
 echo ' '
 
 for (( i=0; i<${#REPLY}; i++ )); do
@@ -80,6 +85,7 @@ for (( i=0; i<${#REPLY}; i++ )); do
         [2] ) setup_git;;
         [3] ) setup_keyboard;;
         [4] ) install_pulse;;
+        [5] ) remove_default_i3_config;;
         [*] ) msg "Invalid option.";;
     esac
 done
