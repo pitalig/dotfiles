@@ -1,21 +1,28 @@
-nu_start=`date +%s.%N`
-
 # Node / nvm
-source /usr/share/nvm/init-nvm.sh
+# nu_start=`date +%s.%N`
 
-end=`date +%s.%N`
-runtime=$((end-nu_start))
-echo " - nvm load time:" $runtime
+# source /usr/share/nvm/init-nvm.sh
+
+# end=`date +%s.%N`
+# runtime=$((end-nu_start))
+# echo " - nvm load time:" $runtime
+## Lazy loading nvm
+alias nvm_source="source /usr/share/nvm/init-nvm.sh"
+# alias nvm="echo 'Run nvm_source first'"
+# alias node="echo 'Run nvm_source first'"
+# alias npm="echo 'Run nvm_source first'"
+
+# nurc source
 nu_start=`date +%s.%N`
 
-# Nu laptop setup
 source /home/gabrielpitali/.nurc
 
 end=`date +%s.%N`
 runtime=$((end-nu_start))
 echo " - .nurc load time:" $runtime
-nu_start=`date +%s.%N`
 
+# Nu bash completion
+nu_start=`date +%s.%N`
 export PATH="/usr/local/bin:$PATH"
 autoload bashcompinit && bashcompinit
 source "$NU_HOME/nucli/nu.bashcompletion"
@@ -23,23 +30,20 @@ source "$NU_HOME/nucli/nu.bashcompletion"
 end=`date +%s.%N`
 runtime=$((end-nu_start))
 echo " - nu bash completion load time:" $runtime
-nu_start=`date +%s.%N`
 
 # Ruby gems path
+nu_start=`date +%s.%N`
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 PATH="$GEM_HOME/bin:$PATH"
 
 end=`date +%s.%N`
 runtime=$((end-nu_start))
 echo " - Ruby gems load time:" $runtime
-nu_start=`date +%s.%N`
 
 # Eval keychain ssh agent
+nu_start=`date +%s.%N`
 eval `keychain --eval -q --agents ssh id_rsa`
 
 end=`date +%s.%N`
 runtime=$((end-nu_start))
 echo " - ssh-agent load time:" $runtime
-
-# Aliases
-alias nu_squad_services="sh /home/gabrielpitali/dev/nu/common-acquisition/nu-squad-services.sh"

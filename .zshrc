@@ -20,8 +20,9 @@ setopt share_history
 export EDITOR=vim
 
 # Plugins:
-plugins=(git lein jsontools zsh-autosuggestions)
+plugins=(git lein jsontools flutter)
 
+# Load oh-my-zsh
 start=`date +%s.%N`
 
 source $ZSH/oh-my-zsh.sh
@@ -29,9 +30,9 @@ source $ZSH/oh-my-zsh.sh
 end=`date +%s.%N`
 runtime=$((end-start))
 echo "oh-my-zsh start time:" $runtime
-start=`date +%s.%N`
 
 # j
+start=`date +%s.%N`
 source /etc/profile.d/autojump.zsh
 
 #fzf
@@ -54,9 +55,10 @@ export slack_token=""
 end=`date +%s.%N`
 runtime=$((end-start))
 echo "j, fzf and some other things start time:" $runtime
-start=`date +%s.%N`
 
 # >>> conda initialize >>>
+start=`date +%s.%N`
+
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$($HOME'/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
@@ -74,9 +76,10 @@ unset __conda_setup
 end=`date +%s.%N`
 runtime=$((end-start))
 echo "conda start time:" $runtime
-start=`date +%s.%N`
 
 # Aliases
+start=`date +%s.%N`
+
 alias zshconfig="code ~/.zshrc"
 alias copy="xclip -selection clipboard"
 alias oath_aws="ykman oath code | grep Amazon | awk '{print \$4}' | copy"
@@ -99,9 +102,9 @@ function touchdate
 end=`date +%s.%N`
 runtime=$((end-start))
 echo "aliases and functions start time:" $runtime
-start=`date +%s.%N`
 
 # Source things specific for nu laptop
+start=`date +%s.%N`
 pc_name=`uname -n`
 if [ $pc_name = "gabrielpitali-pc" ]; then
     echo "nulaptoprc:"

@@ -25,15 +25,22 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+# exec --no-startup-id volumeicon
+# bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id pa-applet
+# exec --no-startup-id pasystray
+bindsym $mod+Ctrl+m exec pavucontrol
 
-#bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%; pkill -RTMIN+10 i3blocks; notify-send 'Volume up'"
-#bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%; pkill -RTMIN+10 i3blocks; notify-send 'Volume down'"
-#bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+10 i3blocks; notify-send 'Volume mute'"
+# bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%; pkill -RTMIN+10 i3blocks; notify-send 'Volume up'"
+# bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%; pkill -RTMIN+10 i3blocks; notify-send 'Volume down'"
+# bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+10 i3blocks; notify-send 'Volume mute'"
+
+# Spotify related key bindings
+bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
 
 ################################################################################################
@@ -46,8 +53,9 @@ bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F4 exec ranger
 bindsym $mod+F5 exec ~/.screenlayout/single.sh
-bindsym $mod+F6 exec ~/.screenlayout/home-wide-1080-side-by-side.sh
-bindsym $mod+F7 exec ~/.screenlayout/home-1080-1080-side-by-side.sh
+bindsym $mod+F6 exec ~/.screenlayout/home-laptop-nubank-side-by-side.sh
+bindsym $mod+F7 exec ~/.screenlayout/home-laptop-nubank-1920-side-by-side.sh
+bindsym $mod+F8 exec ~/.screenlayout/home-nubank-only.sh
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
@@ -194,6 +202,7 @@ for_window [class="(?i)virtualbox"] floating disable
 for_window [class="Xfburn"] floating disable
 for_window [class="forticlientsslvpn"] floating disable
 for_window [class="Forticlientsslvpn"] floating disable
+for_window [title="Android Emulator*"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -264,6 +273,7 @@ bar {
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position bottom
 	strip_workspace_numbers yes
+    tray_output primary
     colors {
         background #283339
         statusline #F9FAF9
@@ -289,7 +299,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #2B2C2B
 
 # Default border
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 3
 
 # Smart / auto hide borders
 hide_edge_borders smart

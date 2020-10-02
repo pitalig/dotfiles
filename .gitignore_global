@@ -2,7 +2,7 @@ pom.xml
 pom.xml.asc
 *.jar
 *.class
-/lib/
+# /lib/
 /classes/
 /target/
 /checkouts/
@@ -20,3 +20,9 @@ services-apis.iml
 monorepl.iml
 vitrine.iml
 acquisition-platform-poc.iml
+mermaid-clj.iml
+tmp-output/*
+pitali_diagrams.clj
+acquisition.iml
+papers-please.iml
+papers-please-1.iml
