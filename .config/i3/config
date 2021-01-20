@@ -52,10 +52,10 @@ bindsym $mod+F2 exec google-chrome-stable
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F4 exec ranger
-bindsym $mod+F5 exec ~/.screenlayout/single.sh
-bindsym $mod+F6 exec ~/.screenlayout/home-laptop-nubank-side-by-side.sh
-bindsym $mod+F7 exec ~/.screenlayout/home-laptop-nubank-1920-side-by-side.sh
-bindsym $mod+F8 exec ~/.screenlayout/home-nubank-only.sh
+bindsym $mod+F5 exec ~/.screenlayout/single.sh && pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo
+bindsym $mod+F6 exec ~/.screenlayout/home-laptop-nubank-side-by-side.sh && pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo
+bindsym $mod+F7 exec ~/.screenlayout/home-nubank-1920-only.sh && pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:hdmi-stereo+input:analog-stereo
+bindsym $mod+F8 exec ~/.screenlayout/home-nubank-only.sh && pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
@@ -257,7 +257,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id ~/.config/conky/start_conky
-exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 ## Disabled applications
