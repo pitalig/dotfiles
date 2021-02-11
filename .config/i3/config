@@ -52,10 +52,9 @@ bindsym $mod+F2 exec google-chrome-stable
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F4 exec ranger
-bindsym $mod+F5 exec ~/.screenlayout/single.sh
-bindsym $mod+F6 exec ~/.screenlayout/home-laptop-nubank-side-by-side.sh
-bindsym $mod+F7 exec ~/.screenlayout/home-nubank-1920-only.sh
-bindsym $mod+F8 exec ~/.screenlayout/home-nubank-only.sh
+bindsym $mod+F5 exec ~/.screenlayout/f5.sh
+bindsym $mod+F6 exec ~/.screenlayout/f6.sh
+bindsym $mod+F7 exec ~/.screenlayout/f7.sh
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
@@ -132,13 +131,12 @@ set $ws8 8
 set $ws9 9
 
 # Workspace default display
-workspace $ws1 output HDMI1
-workspace $ws2 output HDMI1
+workspace $ws1 output DP-3
+workspace $ws2 output eDP-1
 
 # Move worspace to other display
-bindsym $mod+Ctrl+1 move workspace to output DP1
-bindsym $mod+Ctrl+2 move workspace to output HDMI1
-bindsym $mod+Ctrl+3 move workspace to output eDP1
+bindsym $mod+Ctrl+1 move workspace to output DP-3
+bindsym $mod+Ctrl+2 move workspace to output eDP-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -261,7 +259,6 @@ exec --no-startup-id ~/.config/conky/start_conky
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 ## Disabled applications
-# exec --no-startup-id .screenlayout/two-screens.sh
 # exec --no-startup-id /usr/bin/g610-led -a 00
 # exec --no-startup-id manjaro-hello
 # exec --no-startup-id picom -b
